@@ -162,21 +162,21 @@ galleryClientsElem.append(client_container);
 const client_elems = imgList.map(list=>{
 	const client_width = client_container.offsetWidth;
 	const divElem = document.createElement('div');
-	divElem.style.width = '1110' + 'px';
+	divElem.style.width = '280' + 'px';
 	divElem.style.backgroundImage = `url('${mediaPath+list}')`;
 	return divElem;
 });
 
 const renderClient = ()=>{
 	const client_width = client_container.offsetWidth;
-	if(client_width <= 1200){
-		client_film.style.right = client_width/1 * clientsIndex + 'px';
-	}else if(client_width > 1200 && client_width < 850){
-		client_film.style.right = client_width/2 * clientsIndex + 'px';
-	}else if(client_width > 850 && client_width < 600){
-		client_film.style.right = client_width/3 * clientsIndex + 'px';
-	}else{
+	if(client_width >= 1200){
 		client_film.style.right = client_width/4 * clientsIndex + 'px';
+	}else if(client_width < 1200 && client_width > 850){
+		client_film.style.right = client_width/3 * clientsIndex + 'px';
+	}else if(client_width < 850 && client_width > 600){
+		client_film.style.right = client_width/2 * clientsIndex + 'px';
+	}else{
+		client_film.style.right = client_width/1 * clientsIndex + 'px';
 	};
 	const liList = document.querySelectorAll('.client-points li');
 	liList.forEach(t=>t.classList.remove('activeClient'));
@@ -185,16 +185,16 @@ const renderClient = ()=>{
 
 const changeSizeClient = ()=>{
 	const client_width = client_container.offsetWidth;
-	if(client_width <= 1200){
-		client_film.style.width = client_width/1 * imgList.length + 'px';
-	}else if(client_width > 1200 && client_width < 850){
-		client_film.style.width = client_width/2 * imgList.length + 'px';
-	}else if(client_width > 850 && client_width < 600){
-		client_film.style.width = client_width/3 * imgList.length + 'px';
-	}else{
+	if(client_width >= 1200){
 		client_film.style.width = client_width/4 * imgList.length + 'px';
+	}else if(client_width < 1200 && client_width > 850){
+		client_film.style.width = client_width/3 * imgList.length + 'px';
+	}else if(client_width < 850 && client_width > 600){
+		client_film.style.width = client_width/2 * imgList.length + 'px';
+	}else{
+		client_film.style.width = client_width/1 * imgList.length + 'px';
 	};
-	client_elems.forEach(elem => elem.style.width = '1110' + 'px');
+	client_elems.forEach(elem => elem.style.width = '280' + 'px');
 	renderClient();
 };
 
